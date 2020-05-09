@@ -142,7 +142,11 @@ float: left;
 		<button>Locations</button>
 		-->
 	</ul>
+	<div id="home_button">
+		<button onclick="location.href='login.php'">Logout</button>
+	</div>
 </div>
+
 <?php 
 	//LOGIN CHECK CODE
 	session_start();
