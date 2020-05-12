@@ -148,8 +148,8 @@ float: left;
 		</li>
 
 		<form action="NDdb.php" method="post">
-			<input type="submit" value="Agencies" name="table">
-			<input type="submit" value="Tornadoes" name="table">
+			<input type="submit" value="Relief_Agencies" name="table">
+			<input type="submit" value="Locations" name="table">
 		</form>
 		<!--
 		<button>Relief Agencies</button>
@@ -171,7 +171,7 @@ float: left;
 		$_SESSION['password'] = $password;
 	}
 	echo $_SESSION['username'];
-	if ($connection=@mysqli_connect('localhost', $_SESSION['username'], $_SESSION['password'], 'nhudson1DB')){
+	if ($connection=@mysqli_connect('localhost', $_SESSION['username'], $_SESSION['password'], 'NaturalDisasterDB')){
 	//if ($connection=@mysqli_connect('localhost', 'nhudson1', 'nhudson1', 'nhudson1DB')){
 		print'<p>Successfully connected</p>';
 	}
@@ -182,8 +182,8 @@ float: left;
 	//QUERY TO SHOW TABLE
 	$tableName = $_POST['table'];
 	echo "Showing data for $tableName";
-	//$sql = "SELECT * FROM $tableName";
-	$sql = "SELECT name, number, major FROM LabExampleTable";
+	$sql = "SELECT * FROM $tableName";
+	//$sql = "SELECT name, number, major FROM LabExampleTable";
 	$result = $connection->query($sql);
 	DisplayTable($result);
 	
