@@ -191,17 +191,27 @@ float: left;
 
 
 	function DisplayTable($data){
-		$output = '<table>';
+		$output = "<table>";
 		foreach($data as $key => $var) {
-		    $output .= '<tr>';
-		    foreach($var as $k => $v) {
-			if ($key === 0) {
-			    $output .= '<td><strong>' . $k . '</strong></td>';
-			} else {
-			    $output .= '<td>' . $v . '</td>';
+			//$output .= '<tr>';
+			if($key===0) {
+				$output .= '<tr>';
+				foreach($var as $col => $val) {
+					$output .= "<td><strong>" . $col . '</strong></td>';
+				}
+				$output .= '</tr>';
+				foreach($var as $col => $val) {
+					$output .= '<td>' . $val . '</td>';
+				}
+				$output .= '</tr>';
 			}
-		    }
-		    $output .= '</tr>';
+			else {
+				$output .= '<tr>';
+				foreach($var as $col => $val) {
+					$output .= '<td>' . $val . '</td>';
+				}
+				$output .= '</tr>';
+			}
 		}
 		$output .= '</table>';
 		echo $output;
